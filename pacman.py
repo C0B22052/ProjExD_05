@@ -609,7 +609,8 @@ def startGame():
                       Pacman.changespeed(0, 60)  # LSHIFTキーを押しながら下キーでスピード増加
                   else:
                       Pacman.changespeed(0, 30)
-              if event.key == pygame.K_j:
+                      
+              if  event.key == pygame.K_LSHIFT:
                   if t_flag == False:
                     for i in range(10):
                       Troll=Ghost( (i*60+19), (i*60+19) , "images/Trollman.png" )
@@ -621,12 +622,7 @@ def startGame():
                       all_sprites_list.add(Troll)
                     t_flag = True
                   
-                  else:
-                    for i in range(20):
-                      monsta_list.remove(monsta_list.sprites()[-1])
-                      all_sprites_list.remove(all_sprites_list.sprites()[-1])
-                    t_flag = False
-
+                  
           if event.type == pygame.KEYUP:
               if event.key == pygame.K_LEFT:
                   if pygame.key.get_mods() & pygame.KMOD_LSHIFT:
@@ -663,6 +659,13 @@ def startGame():
                     score -= 40             #スコアを40消費する
                     kkk = 0
                     stop_life = 50           #stop_lifeを50にする
+
+              if event.key == pygame.K_LSHIFT:
+    
+                  for i in range(20):
+                    monsta_list.remove(monsta_list.sprites()[-1])
+                    all_sprites_list.remove(all_sprites_list.sprites()[-1])
+                    t_flag = False
 
 
 
